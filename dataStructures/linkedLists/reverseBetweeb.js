@@ -51,4 +51,20 @@ const reverseBetween = function(head, m, n) {
    
 };
 
-console.log(reverseBetween(node1,3,4));
+// console.log(reverseBetween(node1,3,4));
+
+
+const fibo = (n) => {
+  let seq = [0,1];
+  const inner = (x) => {
+    if (seq[x] !== undefined) {
+      return seq[x];
+    }
+    seq.push(inner(x-2) + inner(x-1));
+    return seq[x]
+  };
+  return inner(n);
+};
+
+console.log(fibo(222));
+
