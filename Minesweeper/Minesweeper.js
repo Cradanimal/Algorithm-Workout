@@ -12,7 +12,6 @@ $(function() {
 
 
   const createGrid = (num) => {
-    const board = new Board(num);
     for (let i = 0; i < num; i++) {
       let row = $('<tr></tr>').addClass('row' + i);
       for (let j = 0; j < num; j++) {
@@ -21,9 +20,6 @@ $(function() {
 
         cell.click(function() {
           $(this).hasClass('checked') ? $(this).removeClass('checked') : $(this).addClass('checked');
-          console.log(i, j);
-          board.toggleSquare(i, j);
-          console.log(board);
         });
       }
       $('table').append(row);
