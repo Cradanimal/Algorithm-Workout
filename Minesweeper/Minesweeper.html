@@ -2,15 +2,32 @@
 <html>
 <head>
   <title>MinesweeperJS</title>
-  
+
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
+  <script   src="http://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+  <script type="text/javascript" src="jquery.near.js"></script>
+  <script type="text/javascript" src="jquery.repeatstring.js"></script>
+  <script type="text/javascript" src="jquery.randomfilter.js"></script>
+  <script type="text/javascript" src="jquery.randrange.js"></script>
   <script type="text/javascript" src="Minesweeper.js"></script>
+  <script type="text/javascript">
+    // When the DOM is ready, build the mine sweeper game.
+    jQuery(function( $ ){
+        var mineSweerper = new Minesweeper(
+            $( "table.mine-sweeper" ),
+            17,
+            12
+        );
+    });
+</script>
 
 
 </head>
 <body>
   <div class="test">Fuck you</div>
+
+      <table cellspacing="2" class="mine-sweeper">
+
+    </table>
 </body>
 </html>
