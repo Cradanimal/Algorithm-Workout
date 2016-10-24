@@ -6,18 +6,27 @@ const isPalindrome = (str) => {
             return false;
         } 
     }
-    but = false
     return true
 };
 
 
 const longestPalidrome = (str) => {
   let len = str.length;
-  let maxLen = 1;
-  let but = true
-  isPalindrome('aaa')
-  return but
-
+  let maxLen = '';
+  let rightInd = 0;
+  let leftInd = 1;
+  for (let i = 0; i < len; i++) {
+    if (str.charAt(i+1) === str.charAt(i-1)) {
+      rightInd = i + 2;
+      leftInd = i - 1; 
+      for (j = 2; j < len - i; j++) {
+        if (str.charAt(i+j) === str.charAt(i-j)) {
+          rightInd = i + j + 1;
+          leftInd = i - j 
+        }
+      }
+    }
+  }
 
   // let rightInd = 0;
   // let leftInd = 1;

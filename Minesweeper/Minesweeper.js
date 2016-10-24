@@ -75,7 +75,8 @@
 
     this.cells.data( "nearBombs", 0 );
 
-    this.cells.each(function( index, cellNode ) {
+    this.cells.each(function(index, cellNode) {
+      console.log("cells", this, cellNode)
       let cell = $( this );
 
       cell.data( "near", cell.near() );
@@ -143,12 +144,12 @@
   Minesweeper.prototype.revealBoard = function() {
 
     this.cells
-      removeClass( "active" )
-      removeClass( "caution" );
+      .removeClass( "active" )
+      .removeClass( "caution" );
 
     this.bombCells.addClass( "bombed" );
 
-    this.cells.each(function( index, cellNode ) {
+    this.cells.each(function() {
 
       let cell = $( this );
 
@@ -206,6 +207,7 @@
 
     }
   };
+
 
   window.Minesweeper = Minesweeper;
 
