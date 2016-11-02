@@ -8,13 +8,29 @@
 
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 
-  <script srd="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js""></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js""></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 
   <script>
+  var formApp = angular.module('formApp', []);
+  function formController ($scope, $http) {
+    $scope.formData = {};
+
+    $scope.processForm = function() {
+      if ($scope.formData.name === undefined) {
+            $scope.errorName = 'Error';
+          } else {
+            $scope.message = 'Way to go beanboy!'
+          }
+      
+    }
+  };
+
     
   </script>
 </head>
-<body>
+<body ng-app="formApp" ng-controller="formController">
 
   <div class="container">
     <div class="col-md-6 col-md-offset-3">
@@ -23,25 +39,27 @@
         <h1><span class="glyphicon glyphicon-tower"></span>Submitting Forms With Angular</h1>
       </div>
 
-      <div id="messages"></div>
+      <div id="messages" ng-show="message">{{ message }}</div>
 
-      <form>
-        <div id="name-group" class="form-group">
+      <form ng-submit="processForm()">
+        <div id="name-group" class="form-group" ng-class="{'has-error' : errorName}">
           <label>Name</label>
-          <input type="text" name="name" class="form-control" placeholder="Bruce Wayne">
-          <span class="help-block"></span>
+          <input type="text" name="name" class="form-control" placeholder="Bruce Wayne" ng-model="formData.name">
+          <span class="help-block" ng-show="errorName">{{ errorName }}</span>
         </div>
 
         <div id="superhero-group" class="form-group">
           <label>Superhero Alias</label>
-          <input type="text" name="superheroAlias" class="form-control" placeholder="Nanananana Batman!">
+          <input type="text" name="superheroAlias" class="form-control" placeholder="Nanananana Batman!" ng-model="formData.superheroAlias">
           <span class="help-block"></span>
         </div>
 
-        <button type="submit" class="btn btn-success btn-lrg btn-block">
+        <button  type="submit" class="btn btn-success btn-lrg btn-block">
           <span class="glyphicon glyphicon-flash"></span>Submit!
         </button>
       </form>
+
+      <pre>{{formData}}</pre>
 
     </div>
   </div>
