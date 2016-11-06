@@ -1,0 +1,30 @@
+    * {
+    box-sizing: border-box;
+    }
+
+    body {
+        background-color: grey;
+    }
+
+    .main {
+      height: 500px;
+    }
+    div #innerBackground { 
+     margin-top: 50px;
+      background: url("../images/papaAndPapas.jpeg") no-repeat ; 
+      width: 100%;
+      height: 500px;
+      background-size: contain;
+
+    }
+
+    nav {
+        float: left;
+        margin-left: inherit;
+    }
+    .nav a {
+        float: left;    
+        color: white;
+        font-size: 18px;
+        font-style: bold;
+    }
